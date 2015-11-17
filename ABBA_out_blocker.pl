@@ -35,7 +35,12 @@ while (<IN>){
 				$current_chr = $a[0];
 			}
 			if (($current_chr ne $a[0]) or ($current_end < $a[1])){
-				my $D = ($DNum / $DDenom);
+				my $D;
+				if ($DDenom ne "0"){
+					$D = ($DNum / $DDenom);
+				}else{
+					$D = 0;
+				}
 				my $Fd;
 				my $Fhom;
 				if ($FdDenom ne "0"){

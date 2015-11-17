@@ -2,8 +2,9 @@
 
 Name=$1
 binpath=/home/owens/bin/abba_baba
+echo "$1"
 #Calculate the numerator and denominator for the D-statistic for each loci 
-perl $binpath/ABBA_BABA.v1.pl /home/owens/exil/2015/Exil.GATK.2015.tab ${Name}.groups.txt > ${Name}_out.txt
+perl $binpath/ABBA_BABA.v1.pl /home/owens/exil/2015/Exil.GATK.2015.tab /home/owens/exil/2015/Exil.GATK.2015.poplist.txt ${Name}.groups.txt > ${Name}_out.txt
 #Sum up numerator and denominator for each scaffold and merge together to form blocks
 perl $binpath/ABBA_out_blocker.pl ${Name}_out.txt > ${Name}_out_block.txt
 #Jackknife bootstrap through the blocks to get standard error
